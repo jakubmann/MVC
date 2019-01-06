@@ -2,9 +2,16 @@
 
 class View {
   public function __construct() {
-    echo 'This da view.';
+    echo 'MAIN VIEW';
   }
-  public function render($name) {
-    require 'views/' . $name . '.php';
+  public function render($name, $include = true) {
+    if ($include == true) {
+      require 'views/header.php';
+      require 'views/' . $name . '.php';
+      require 'views/footer.php';
+    }
+    else {
+      require 'views/' . $name . '.php';
+    }
   }
 }
